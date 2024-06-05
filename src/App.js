@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Typography, CircularProgress } from '@mui/material'
+import { Container, Typography,  LinearProgress } from '@mui/material'
 import useFetch from './hooks/useFetch'
 import DogList from './components/DogList'
 import SearchBar from './components/SearchBar'
@@ -18,7 +18,7 @@ function App() {
   )
 
   // Display loading spinner if data is still loading
-  if (loading) return <CircularProgress />
+  if (loading) return <LinearProgress />
   // Display error message if there's an error fetching data
   if (error)
     return (
