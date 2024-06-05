@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Container, Typography, CircularProgress } from '@mui/material'
+import useFetch from './hooks/useFetch'
+import DogList from './components/DogList'
+import SearchBar from './components/SearchBar'
+import { Box } from '@mui/system'
 
 function App() {
+  const {
+    data: dogs, // Fetched data Loading state Error state
+    loading,
+    error,
+  } = useFetch('https://api.thedogapi.com/v1/breeds') // API endpoint for fetching dog breeds
+  const [search, setSearch] = useState('')
+  // Filter dogs based on search input
+  const filteredDogs = dogs.filter((dog) =>
+    dog.name.toLowerCase().includes(search.toLowerCase())
+  )
+
+  // Display loading spinner if data is still loading
+  if (loading) return <CircularProgress />
+  // Display error message if there's an error fetching data
+  if (error)
+    return (
+      <Typography variant='h6' color='error'>
+        Error fetching data
+      </Typography>
+    )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container sx={{ px: 4 }}>
+      <Typography variant='h2' gutterBottom align='center'>
+        DOG BREEDS
+      </Typography>
+      <Box sx={{ mb: 4 }}>
+        <SearchBar setSearch={setSearch} />
+      </Box>
+      <DogList dogs={filteredDogs} />{' '}
+    </Container>
+  )
 }
 
-export default App;
+export default App
