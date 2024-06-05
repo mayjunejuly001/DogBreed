@@ -29,9 +29,8 @@ function App() {
 
   return (
     <Container sx={{ px: 4 }}>
-      <Typography variant='h2' gutterBottom align='center'>
-        <PetsOutlinedIcon fontSize='large' /> DOG BREEDS{' '}
-        <PetsOutlinedIcon fontSize='large' />
+      <Typography variant='h3' gutterBottom align='center'>
+        <PetsOutlinedIcon fontSize='large'  /> Dog Breeds
       </Typography>
       <Box sx={{ mb: 4 }}>
         <SearchBar setSearch={setSearch} />
