@@ -32,7 +32,9 @@ function SearchBar({ setSearch }) {
         value={searchTerm}
         onChange={handleInputChange}
         fullWidth
-      
+        sx={{ input: { color: 'white' } }}
+        color='success'
+        focused
       />
     </Box>
   )

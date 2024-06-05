@@ -20,6 +20,8 @@ function DogList({ dogs }) {
               '&:hover': {
                 transform: 'scale(1.05)',
               },
+              backgroundColor: 'rgba(138, 208, 134, 0.9)',
+              color: 'white',
             }}
           >
             {/* Dog image */}
@@ -44,12 +46,11 @@ function DogList({ dogs }) {
                 p: 2,
               }}
             >
-              {/* Dog name */}
               <Typography variant='h5' component='div' gutterBottom>
                 {dog.name}
               </Typography>
-              {/* Dog temperament */}
-              <Typography variant='body2' color='text.secondary'>
+
+              <Typography variant='body2' color='white'>
                 {dog.temperament}
               </Typography>
             </CardContent>
@@ -60,4 +61,4 @@ function DogList({ dogs }) {
   )
 }
 
-export default DogList 
+export default DogList
