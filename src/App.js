@@ -4,7 +4,7 @@ import useFetch from './hooks/useFetch'
 import DogList from './components/DogList'
 import SearchBar from './components/SearchBar'
 import { Box } from '@mui/system'
-
+import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined'
 function App() {
   const {
     data: dogs, // Fetched data Loading state Error state
@@ -30,7 +30,8 @@ function App() {
   return (
     <Container sx={{ px: 4 }}>
       <Typography variant='h2' gutterBottom align='center'>
-        DOG BREEDS
+        <PetsOutlinedIcon fontSize='large' /> DOG BREEDS{' '}
+        <PetsOutlinedIcon fontSize='large' />
       </Typography>
       <Box sx={{ mb: 4 }}>
         <SearchBar setSearch={setSearch} />
